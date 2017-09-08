@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>A Camel Route</name>
+    <name>Analysis tool plugin develop</name>
 
     <repositories>
         <repository>
