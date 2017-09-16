@@ -30,7 +30,8 @@ public class TestDocAProcessor implements NlpProcessor {
             data.setCleanedData(data.getContent());
         }
         //创建本体对象
-        UnObject unObject = new UnObject("data.object.document.test.plugin.a");
+        String objectUri = "data.object.file.document.paper";
+        UnObject unObject = new UnObject(objectUri);
         unObject.setEditor("Inspur Test");
         System.out.println("Segment ins: "+segment);
         if (segment == null) {
@@ -64,7 +65,7 @@ public class TestDocAProcessor implements NlpProcessor {
             }
         }
         //本体的人名属性
-        Property name = new Property("data.property.string", "title", "data.object.document.test.plugin.a");
+        Property name = new Property("data.property.string", "title", objectUri);
         //设置属性的值
         name.setPropertyValue(nr);
         //设置数据源信息
@@ -74,10 +75,10 @@ public class TestDocAProcessor implements NlpProcessor {
         unObject.setObjectName(data.getName());
         //设置对象的属性
 
-        Property keywords=new Property("data.property.string","keywords","data.object.document.test.plugin.a");
+        Property keywords=new Property("data.property.string","keywords",objectUri);
         keywords.setPropertyValue(keywordList);
         keywords.setUnique(true);
-        Property summery=new Property("data.property.string","abstract","data.object.document.test.plugin.a");
+        Property summery=new Property("data.property.string","abstract",objectUri);
         summery.setPropertyValue(sentenceList);
         summery.setUnique(true);
         unObject.setPropertyList(Arrays.asList(new Property[]{name,keywords,summery}));
